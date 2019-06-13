@@ -22,8 +22,8 @@ HotelRow.propTypes = {
   hotel: PropTypes.shape({
     name: PropTypes.string,
     url: PropTypes.string,
-    thumbUrl: PropTypes.number,
-    price: PropTypes.string,
+    thumbUrl: PropTypes.string,
+    price: PropTypes.number,
     reviewAverage: PropTypes.number,
     reviewCount: PropTypes.number,
   }).isRequired,
