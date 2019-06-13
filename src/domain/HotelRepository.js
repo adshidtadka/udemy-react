@@ -1,4 +1,4 @@
-import geolib from 'geolib';
+import { getDistance } from 'geolib';
 
 import Rakuten from '../lib/Rakuten';
 
@@ -16,11 +16,11 @@ export const searchHotelByLocation = (location) => {
     console.log(hotel);
     const basicInfo = hotel.hotel[0].hotelBasicInfo;
     const price = basicInfo.hotelMinCharge;
-    // const distance = geolib.getDistance(
-    //   { latitude: location.lat, longitude: location.lng },
-    //   { latitude: basicInfo.latitude, longitude: basicInfo.longitude },
-    // );
-    // console.log(distance);
+    const distance = getDistance(
+      { latitude: location.lat, longitude: location.lng },
+      { latitude: basicInfo.latitude, longitude: basicInfo.longitude },
+    );
+    console.log(distance);
 
     return {
       id: basicInfo.hotelNo,
@@ -30,7 +30,7 @@ export const searchHotelByLocation = (location) => {
       price: price ? `${price}円` : '空室なし',
       reviewAverage: basicInfo.reviewAverage,
       reviewCount: basicInfo.reviewCount,
-      // distance,
+      distance,
     };
   }));
 };
