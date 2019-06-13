@@ -7,6 +7,7 @@ const HotelsTable = ({ hotels }) => (
   <table>
     <tbody>
       <tr>
+        <th>画像</th>
         <th>ホテル名</th>
       </tr>
       {hotels.map(hotel => (
