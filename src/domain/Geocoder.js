@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-import { config } from '../../config/config';
-
 const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
+const config = require('../../config/config');
 
-export const geocode = place => axios.get(GEOCODE_ENDPOINT, { params: { address: place, key: API_KEY } }).then((results) => {
+export const geocode = place => axios.get(GEOCODE_ENDPOINT, { params: { address: place, key: config.API_KEY } }).then((results) => {
   const { data } = results;
   const { status } = data;
   const result = results.data.results[0];
